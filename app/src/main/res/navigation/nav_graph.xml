@@ -49,7 +49,15 @@
         android:id="@+id/confirmationFragment"
         android:name="com.alamin.navigationcomponents_kotlin.ConfirmationFragment"
         android:label="fragment_confirmation"
-        tools:layout="@layout/fragment_confirmation" />
+        tools:layout="@layout/fragment_confirmation" >
+        <argument android:name="recipient"
+            android:defaultValue="None"/>
+        <argument android:name="amount"
+            android:defaultValue="None"/>
+<!--
+        <argument android:name="amount"
+            app:argType="com.alamin.navigationcomponents_kotlin.Money"/>-->
+    </fragment>
     <fragment
         android:id="@+id/viewTransactionFragment"
         android:name="com.alamin.navigationcomponents_kotlin.ViewTransactionFragment"
@@ -60,6 +68,10 @@
         android:name="com.alamin.navigationcomponents_kotlin.SpecifyAmountFragment"
         android:label="fragment_specify_amount"
         tools:layout="@layout/fragment_specify_amount" >
+
+        <argument android:name="recipient"
+            android:defaultValue="None"/>
+
         <action
             android:id="@+id/action_specifyAmountFragment_to_confirmationFragment"
             app:destination="@id/confirmationFragment"

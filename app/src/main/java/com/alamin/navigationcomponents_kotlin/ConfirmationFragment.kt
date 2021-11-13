@@ -5,7 +5,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-class ConfirmationFragment : Fragment(),View.OnClickListener {
+import android.widget.TextView
+
+class ConfirmationFragment : Fragment() {
+
+    lateinit var recipient:String ;
+    lateinit var money:String ;
+
+    lateinit var message : TextView;
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        recipient = arguments?.getString("recipient").toString()
+        money = arguments?.getString("amount").toString()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -14,7 +27,13 @@ class ConfirmationFragment : Fragment(),View.OnClickListener {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_confirmation, container, false)
     }
-    override fun onClick(p0: View?) {
-        TODO("Not yet implemented")
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        message = view.findViewById(R.id.confirmation_message);
+
+        message.text = "$money Tk Send By $recipient"
     }
+
 }
