@@ -2,6 +2,7 @@ package com.alamin.navigationcomponents_kotlin
 
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,19 +12,20 @@ import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.navArgs
 import com.google.android.material.textfield.TextInputEditText
 import org.w3c.dom.Text
 
 class SpecifyAmountFragment : Fragment(),View.OnClickListener {
+
+    private val TAG = "SpecifyAmountFragment";
+
     lateinit var navController:NavController;
     lateinit var recipient:String;
     lateinit var input: TextInputEditText;
     lateinit var txtRecipient: TextView;
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        recipient = arguments?.getString("recipient").toString();
-    }
+    val args: SpecifyAmountFragmentArgs by navArgs();
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,9 +38,11 @@ class SpecifyAmountFragment : Fragment(),View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view);
+        recipient = args.recipient;
         input = view.findViewById(R.id.input_amount);
         txtRecipient = view.findViewById(R.id.recipient);
         txtRecipient.text = "Seding money to $recipient"
+
         view.findViewById<Button>(R.id.send_btn).setOnClickListener(this);
         view.findViewById<Button>(R.id.cancel_btn).setOnClickListener(this);
     }

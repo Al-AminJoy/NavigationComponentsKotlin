@@ -70,7 +70,9 @@
         tools:layout="@layout/fragment_specify_amount" >
 
         <argument android:name="recipient"
+            app:argType="string"
             android:defaultValue="None"/>
+
 
         <action
             android:id="@+id/action_specifyAmountFragment_to_confirmationFragment"
@@ -79,6 +81,7 @@
             app:enterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_right"
             app:popEnterAnim="@anim/slide_in_left"/>
+
     </fragment>
     <fragment
         android:id="@+id/viewBalanceFragment"

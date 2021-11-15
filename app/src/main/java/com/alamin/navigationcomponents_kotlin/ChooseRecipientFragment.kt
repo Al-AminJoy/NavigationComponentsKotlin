@@ -38,8 +38,8 @@ class ChooseRecipientFragment : Fragment(),View.OnClickListener {
         when(v?.id){
             R.id.next_btn -> {
                 if (!TextUtils.isEmpty(input.text.toString())){
-                    val bundle  = bundleOf("recipient" to input.text.toString())
-                    navController?.navigate(R.id.action_chooseRecipientFragment2_to_specifyAmountFragment,bundle)
+                   val action = ChooseRecipientFragmentDirections.actionChooseRecipientFragment2ToSpecifyAmountFragment(input.text.toString());
+                    navController.navigate(action)
                 }
             }
             R.id.cancel_btn -> activity?.onBackPressed();
