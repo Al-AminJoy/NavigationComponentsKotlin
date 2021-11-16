@@ -50,13 +50,9 @@
         android:name="com.alamin.navigationcomponents_kotlin.ConfirmationFragment"
         android:label="fragment_confirmation"
         tools:layout="@layout/fragment_confirmation" >
-        <argument android:name="recipient"
-            android:defaultValue="None"/>
-        <argument android:name="amount"
-            android:defaultValue="None"/>
-<!--
-        <argument android:name="amount"
-            app:argType="com.alamin.navigationcomponents_kotlin.Money"/>-->
+        <argument
+            android:name="money"
+            app:argType="com.alamin.navigationcomponents_kotlin.Money" />
     </fragment>
     <fragment
         android:id="@+id/viewTransactionFragment"

@@ -1,6 +1,7 @@
 package com.alamin.navigationcomponents_kotlin
 
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.text.TextUtils
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -51,10 +52,15 @@ class SpecifyAmountFragment : Fragment(),View.OnClickListener {
         when(v?.id){
             R.id.send_btn ->{
                 if (!TextUtils.isEmpty(input.text.toString())){
-                    val bundle  = bundleOf("recipient" to recipient,"amount" to input.text.toString())
-                    navController?.navigate(R.id.action_specifyAmountFragment_to_confirmationFragment,bundle)                }
+                    val money : Money = Money(recipient,input.text.toString());
+                   val action = SpecifyAmountFragmentDirections.actionSpecifyAmountFragmentToConfirmationFragment(money);
+
+                    navController.navigate(action);
+
+                 //   navController?.navigate(R.id.action_specifyAmountFragment_to_confirmationFragment,bundle)
+                   }
             }
-            R.id.cancel_btn -> activity?.onBackPressed();
+            R.id.cancel_btn -> activity?.onBackPressed()
         }
     }
 }
