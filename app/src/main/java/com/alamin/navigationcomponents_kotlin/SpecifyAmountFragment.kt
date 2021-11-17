@@ -42,7 +42,7 @@ class SpecifyAmountFragment : Fragment(),View.OnClickListener {
         recipient = args.recipient;
         input = view.findViewById(R.id.input_amount);
         txtRecipient = view.findViewById(R.id.recipient);
-        txtRecipient.text = "Seding money to $recipient"
+        txtRecipient.text = "Sending money to $recipient"
 
         view.findViewById<Button>(R.id.send_btn).setOnClickListener(this);
         view.findViewById<Button>(R.id.cancel_btn).setOnClickListener(this);
